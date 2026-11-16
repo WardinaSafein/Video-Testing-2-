@@ -1,0 +1,142 @@
+{
+  "project": "Assessing Skills and Authenticity",
+  "version": "2.0-clean-rebuild",
+  "canvas": {
+    "width": 1920,
+    "height": 1080
+  },
+  "notes": [
+    "No generated checkerboard pixels. All assets rendered from SVG shapes with real RGBA transparency.",
+    "Add approved dentsu logo as separate brand asset. No made-up logos.",
+    "PNG text that appears inside sample interfaces is baked in; SVG sources can be edited."
+  ],
+  "scenes": [
+    {
+      "id": "S01",
+      "key": "S01_ScreenShare",
+      "description": "Live task / video call",
+      "frame": "frames/ASA_S01_Frame_ScreenShare.png",
+      "assets": [
+        "scenes/S01_ScreenShare/ASA_S01_Element_LiveScreenShareWorkspace.png",
+        "scenes/S01_ScreenShare/ASA_S01_Element_ShareScreenBadge.png"
+      ],
+      "video_cutout_xywh": [
+        170,
+        215,
+        1050,
+        630
+      ],
+      "illustration_alpha_corner": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "frame_hole_alpha": 0
+    },
+    {
+      "id": "S02",
+      "key": "S02_ClarifyDetails",
+      "description": "Work sample / annotation",
+      "frame": "frames/ASA_S02_Frame_ClarifyDetails.png",
+      "assets": [
+        "scenes/S02_ClarifyDetails/ASA_S02_Element_ProjectPortfolioWithClarification.png",
+        "scenes/S02_ClarifyDetails/ASA_S02_Element_MagnifierRing.png",
+        "scenes/S02_ClarifyDetails/ASA_S02_Element_HighlightCircle.png"
+      ],
+      "video_cutout_xywh": [
+        145,
+        185,
+        1115,
+        615
+      ],
+      "illustration_alpha_corner": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "frame_hole_alpha": 0
+    },
+    {
+      "id": "S03",
+      "key": "S03_ThinkAloud",
+      "description": "Task / reasoning steps",
+      "frame": "frames/ASA_S03_Frame_ThinkAloud.png",
+      "assets": [
+        "scenes/S03_ThinkAloud/ASA_S03_Element_StepByStepTaskWalkthrough.png",
+        "scenes/S03_ThinkAloud/ASA_S03_Element_ReasoningStep01_Understand.png",
+        "scenes/S03_ThinkAloud/ASA_S03_Element_ReasoningStep02_Approach.png",
+        "scenes/S03_ThinkAloud/ASA_S03_Element_ReasoningStep03_Execute.png",
+        "scenes/S03_ThinkAloud/ASA_S03_Element_ReasoningStep04_Explain.png"
+      ],
+      "video_cutout_xywh": [
+        145,
+        160,
+        1630,
+        570
+      ],
+      "illustration_alpha_corner": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "frame_hole_alpha": 0
+    },
+    {
+      "id": "S04",
+      "key": "S04_TargetedQuestions",
+      "description": "Questions / category hub",
+      "frame": "frames/ASA_S04_Frame_TargetedQuestions.png",
+      "assets": [
+        "scenes/S04_TargetedQuestions/ASA_S04_Element_TargetedInterviewQuestionBoard.png",
+        "scenes/S04_TargetedQuestions/ASA_S04_Element_QuestionCard_Location.png",
+        "scenes/S04_TargetedQuestions/ASA_S04_Element_QuestionCard_Experience.png",
+        "scenes/S04_TargetedQuestions/ASA_S04_Element_QuestionCard_Commute.png",
+        "scenes/S04_TargetedQuestions/ASA_S04_Element_QuestionCard_Neighbourhood.png",
+        "scenes/S04_TargetedQuestions/ASA_S04_Element_QuestionCard_Formermanager.png",
+        "scenes/S04_TargetedQuestions/ASA_S04_Element_QuestionCard_Keyprojects.png"
+      ],
+      "video_cutout_xywh": [
+        520,
+        220,
+        880,
+        575
+      ],
+      "illustration_alpha_corner": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "frame_hole_alpha": 0
+    },
+    {
+      "id": "S05",
+      "key": "S05_FollowUpQuestions",
+      "description": "Conversation / branching",
+      "frame": "frames/ASA_S05_Frame_FollowUpQuestions.png",
+      "assets": [
+        "scenes/S05_FollowUpQuestions/ASA_S05_Element_BranchingFollowUpConversation.png",
+        "scenes/S05_FollowUpQuestions/ASA_S05_Element_ConversationCard_InitialAnswer.png",
+        "scenes/S05_FollowUpQuestions/ASA_S05_Element_ConversationCard_ClarifyDetails.png",
+        "scenes/S05_FollowUpQuestions/ASA_S05_Element_ConversationCard_SpecificExample.png",
+        "scenes/S05_FollowUpQuestions/ASA_S05_Element_ConversationCard_DeeperFollowUp.png"
+      ],
+      "video_cutout_xywh": [
+        165,
+        165,
+        1050,
+        720
+      ],
+      "illustration_alpha_corner": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "frame_hole_alpha": 0
+    }
+  ]
+}
