@@ -1,0 +1,57 @@
+<!doctype html><html><head><meta charset="utf-8"><style>html,body{margin:0;background:#F4EBDD}svg{display:block}</style></head><body>
+<svg id="s" width="1280" height="768" viewBox="0 0 1280 768" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="768" fill="#F4EBDD"/>
+  <!-- tail -->
+  <g id="tail"><path d="M95,585 C60,540 40,480 70,430" fill="none" stroke="#111" stroke-width="30" stroke-linecap="round"/>
+    <path d="M95,585 C60,540 40,480 70,430" fill="none" stroke="#B5562A" stroke-width="14" stroke-linecap="round"/></g>
+  <!-- body -->
+  <g id="body"><path d="M150,700 C60,700 50,580 120,560 C260,525 470,525 600,545 C690,560 720,690 660,715 Z" fill="#B5562A" stroke="#111" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M260,600 C330,585 420,585 480,600" fill="none" stroke="#8E3F1C" stroke-width="8" stroke-linecap="round"/></g>
+  <!-- head -->
+  <g id="head">
+    <path d="M560,600 C530,450 610,330 720,318 C805,310 855,350 905,388 C955,418 1005,425 1018,466 C1030,510 985,535 930,528 C870,522 815,525 770,570 C720,620 600,640 560,600 Z" fill="#B5562A" stroke="#111" stroke-width="10" stroke-linejoin="round"/>
+    <path id="smile" d="M835,478 Q885,515 945,486" fill="none" stroke="#111" stroke-width="9" stroke-linecap="round"/>
+    <circle cx="905" cy="468" r="7" fill="#F4EBDD"/><circle cx="922" cy="456" r="6" fill="#F4EBDD"/>
+    <g id="nose"><ellipse cx="1000" cy="452" rx="32" ry="27" fill="#111"/><ellipse cx="990" cy="442" rx="9" ry="6" fill="#fff" opacity=".85"/></g>
+    <g id="eye"><ellipse cx="792" cy="398" rx="27" ry="31" fill="#fff" stroke="#111" stroke-width="8"/>
+      <g id="pupil"><circle cx="802" cy="390" r="14" fill="#111"/><circle cx="806" cy="385" r="4" fill="#fff"/></g></g>
+    <path d="M758,352 Q790,336 826,350" fill="none" stroke="#111" stroke-width="8" stroke-linecap="round"/>
+    <g id="ear"><path d="M655,345 C590,325 535,400 552,478 C565,535 640,548 690,500 C715,445 712,372 655,345 Z" fill="#111"/>
+      <path d="M600,400 C590,430 592,460 605,485" fill="none" stroke="#333" stroke-width="6" stroke-linecap="round"/></g>
+    <!-- collar + tag -->
+    <path d="M585,560 C620,600 680,615 735,595" fill="none" stroke="#111" stroke-width="26" stroke-linecap="round"/>
+    <path d="M585,560 C620,600 680,615 735,595" fill="none" stroke="#2E5AAC" stroke-width="12" stroke-linecap="round"/>
+    <g id="tag"><line x1="690" y1="605" x2="700" y2="640" stroke="#111" stroke-width="6"/>
+      <circle cx="702" cy="668" r="30" fill="#F2C93A" stroke="#111" stroke-width="8"/>
+      <path d="M702,682 C682,668 684,652 696,654 C700,655 702,660 702,662 C702,660 704,655 708,654 C720,652 722,668 702,682 Z" fill="#111"/></g>
+  </g>
+  <!-- grass -->
+  <path d="M0,705 C180,690 360,712 560,700 C760,688 980,712 1280,698 L1280,768 L0,768 Z" fill="#5DBB4B" stroke="#111" stroke-width="10"/>
+  <g id="blades"></g>
+</svg>
+<script>
+const NS='http://www.w3.org/2000/svg', bladesG=document.getElementById('blades');
+const bladeXs=[40,210,330,560,620,790,880,1050,1180];
+const blades=bladeXs.map((x,i)=>{const g=document.createElementNS(NS,'g');
+  const h=60+((i*37)%40), w=26+((i*13)%14);
+  g.innerHTML=`<path d="M${x},712 C${x-w},${712-h*0.6} ${x-w*0.3},${712-h} ${x+w*0.6},${712-h} C${x+w*0.4},${712-h*0.5} ${x+w*0.6},${712-h*0.2} ${x+10},712 Z" fill="#6FD15A" stroke="#111" stroke-width="8" stroke-linejoin="round"/>`;
+  bladesG.appendChild(g);return {g,x};});
+const $=id=>document.getElementById(id), S=Math.sin, P=Math.PI*2;
+window.render=t=>{
+  const breathe=1+0.018*S(P*t/2);
+  $('body').setAttribute('transform',`translate(0,715) scale(1,${breathe}) translate(0,-715)`);
+  const headRot=2.5*S(P*t/3)+(t%6>3.2&&t%6<4.4?-4*S(Math.PI*(t%6-3.2)/1.2):0);
+  $('head').setAttribute('transform',`rotate(${headRot} 640 590) translate(0,${-6*(breathe-1)/0.018*0.4})`);
+  $('ear').setAttribute('transform',`rotate(${7*S(P*t/3-0.7)} 655 350)`);
+  $('tag').setAttribute('transform',`rotate(${10*S(P*t/1.5-1)} 695 605)`);
+  $('tail').setAttribute('transform',`rotate(${22*S(P*t*2.2)} 95 585)`);
+  const tb=t%3, blink=(tb>1.4&&tb<1.56)?0.12:1;
+  $('eye').setAttribute('transform',`translate(0,398) scale(1,${blink}) translate(0,-398)`);
+  $('pupil').setAttribute('transform',`translate(${6*S(P*t/6)},${-3*S(P*t/6)})`);
+  const sn=t%6, sniff=(sn>4.2&&sn<5)?1+0.08*Math.abs(S(P*(sn-4.2)*3)):1;
+  $('nose').setAttribute('transform',`translate(1000,452) scale(${sniff}) translate(-1000,-452)`);
+  $('smile').setAttribute('transform',`translate(0,${2*S(P*t/3)})`);
+  blades.forEach((b,i)=>b.g.setAttribute('transform',`translate(${b.x},712) skewX(${7*S(P*t/2+i*0.9)}) translate(${-b.x},-712)`));
+};
+render(0);
+</script></body></html>
